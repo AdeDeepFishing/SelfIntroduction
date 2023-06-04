@@ -27,8 +27,49 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         modeToggleButton.setTitle("Light Mode", for: .normal)
+        
+        let defaults = UserDefaults.standard
+        let darkModeOn = defaults.bool(forKey: "darkModeOn")
+        if darkModeOn {
+            overrideUserInterfaceStyle = .dark
+            modeToggleButton.setTitle("Light Mode", for: .normal)
+        } else {
+            overrideUserInterfaceStyle = .light
+            modeToggleButton.setTitle("Dark Mode", for: .normal)
+        }
+        
+        
+        if let savedFirstName = defaults.string(forKey: "firstName") {
+            firstNametextField.text = savedFirstName
+        }
+        
+        if let savedLastName = defaults.string(forKey: "lastName") {
+            lastNameTextField.text = savedLastName
+        }
+        
+        if let savedSchoolName = defaults.string(forKey: "schoolName") {
+            schoolNameTextField.text = savedSchoolName
+        }
+        
+        if let savedMajor = defaults.string(forKey: "major") {
+            majorTextField.text = savedMajor
+        }
+        
+        if let savedHobbies = defaults.string(forKey: "hobbies") {
+            hobbiesTextField.text = savedHobbies
+        }
+        
+        let savedYear = defaults.integer(forKey: "schoolYear")
+        
+        yearSegmentedControl.selectedSegmentIndex = savedYear
+        
+        if let savedNumOfPets = defaults.string(forKey: "numOfPets") {
+            numberOfPetsLabel.text = savedNumOfPets
+        }
+        
+        
     }
     
     
@@ -55,8 +96,9 @@ class ViewController: UIViewController {
     
     
     @IBOutlet weak var modeToggleButton: UIButton!
-    
     @IBAction func modeToggleButtonTapped(_ sender: UIButton) {
+        let defaults=UserDefaults.standard
+        
         if overrideUserInterfaceStyle == .light{
             overrideUserInterfaceStyle = .dark
             modeToggleButton.setTitle("Light Mode", for: .normal)
@@ -67,6 +109,24 @@ class ViewController: UIViewController {
     }
     
 
-    
+    @IBOutlet weak var saveMessageButton: UIButton!
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        let defaults=UserDefaults.standard
+        defaults.set(firstNametextField.text, forKey: "firstName")
+        defaults.set(lastNameTextField.text, forKey: "lastName")
+        defaults.set(schoolNameTextField.text, forKey: "schoolName")
+        defaults.set(majorTextField.text, forKey: "major")
+        defaults.set(hobbiesTextField.text, forKey: "hobbies")
+        defaults.set(yearSegmentedControl.selectedSegmentIndex, forKey: "schoolYear")
+        defaults.set(numberOfPetsLabel.text, forKey: "numOfPets")
+        
+        let alertController=UIAlertController(title: "Success", message: "Saved", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Close", style: .default, handler: nil)
+        
+        alertController.addAction(action)
+        present(alertController,animated: true,completion: nil)
+        
+    }
 }
 
