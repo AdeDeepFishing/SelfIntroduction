@@ -29,4 +29,4 @@ Optional Features
 
 [X] User can select on additional buttons that provide more info about the user. Example: more textfields, a different alert box, etc.
 
-[ ] Any stylistic changes that are not default options (Comment this here)
+[X] Any stylistic changes that are not default options (Comment this here): can save messages/choice even when close the app.
