@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var firstNametextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var schoolNameTextField: UITextField!
+    @IBOutlet weak var majorTextField: UITextField!
+    @IBOutlet weak var hobbiesTextField: UITextField!
     
     @IBOutlet weak var yearSegmentedControl: UISegmentedControl!
     
@@ -38,7 +40,8 @@ class ViewController: UIViewController {
     @IBAction func introduceSelfButtonTapped(_ sender: UIButton) {
         let year = yearSegmentedControl.titleForSegment(at: yearSegmentedControl.selectedSegmentIndex)
                 
-        let introduction = "Hey, my name is \(firstNametextField.text!) \(lastNameTextField.text!) and I am attending \(schoolNameTextField.text!) ( ´ ▽ ` )ﾉ. I am currently in my \(year!) year and I own \(numberOfPetsLabel.text!) pets. It is \(morePetsSwitch.isOn) that I want more cats (｡･ω･｡) 🐱🐱"
+        let introduction = "Hey, my name is \(firstNametextField.text!) \(lastNameTextField.text!) and I am attending \(schoolNameTextField.text!) ( ´ ▽ ` )ﾉ. \(majorTextField.text!) is my major and I like \(hobbiesTextField.text!). I am currently in my \(year!) year and I own \(numberOfPetsLabel.text!) pets. It is \(morePetsSwitch.isOn) that I want more cats (｡･ω･｡) 🐱🐱"
+
             
         let alertController = UIAlertController(title: "My Introduction", message: introduction, preferredStyle: .alert)
             
