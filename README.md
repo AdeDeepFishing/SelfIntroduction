@@ -25,8 +25,8 @@ Required Features
 
 Optional Features
 
-[X] User can tap a button to change the color of the background view
+[X] User can tap a button to change the color of the background view ( I make darkmode/lightmode here
 
-[ ] User can select on additional buttons that provide more info about the user. Example: more textfields, a different alert box, etc.
+[X] User can select on additional buttons that provide more info about the user. Example: more textfields, a different alert box, etc.
 
 [ ] Any stylistic changes that are not default options (Comment this here)
