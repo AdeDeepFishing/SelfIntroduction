@@ -25,7 +25,7 @@ Required Features
 
 Optional Features
 
-[ ] User can tap a button to change the color of the background view
+[X] User can tap a button to change the color of the background view
 
 [ ] User can select on additional buttons that provide more info about the user. Example: more textfields, a different alert box, etc.
 
