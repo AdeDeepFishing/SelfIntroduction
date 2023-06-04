@@ -22,9 +22,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var numberOfPetsLabel: UILabel!
     
     @IBOutlet weak var selfIntroButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        modeToggleButton.setTitle("Light Mode", for: .normal)
     }
     
     
@@ -47,6 +49,21 @@ class ViewController: UIViewController {
         present(alertController, animated: true, completion: nil)
         
     }
+    
+    
+    @IBOutlet weak var modeToggleButton: UIButton!
+    
+    @IBAction func modeToggleButtonTapped(_ sender: UIButton) {
+        if overrideUserInterfaceStyle == .light{
+            overrideUserInterfaceStyle = .dark
+            modeToggleButton.setTitle("Light Mode", for: .normal)
+        }else{
+            overrideUserInterfaceStyle = .light
+            modeToggleButton.setTitle("Dark Mode", for: .normal)
+        }
+    }
+    
+
     
 }
 
